@@ -7,6 +7,12 @@ The three code files implement 4 different levels of differential private query'
 3. Personalised Differential Privacy (without Provenances)
 4. Personalised Differential Privacy (with Provenances)
 
+### Requirements to run:
+I have used a virtual environment (VirtualBox) to run the sharemind sdk which supports the SecreC language.
+The VM image with inbuilt secrec compiler can be downloaded from https://sharemind.cyber.ee/sharemind-mpc/ 
+The code can be run by using the keyboard shortcut ctrl+fn+F2.
+
+### Validity
 Additionally, the .ipynb notebook has the relevant graphs as asked during code evaluation. 
 Initially, I have checked the validity of the laplace value generation function by comparing its output with the library function in python. 
 Having validated that, I have adopted the sample and aggregate function to python and presented histograms for 1000 iterations the sample and aggregate function the output over various values of E.
