@@ -1,4 +1,4 @@
-# Combining Differential Privacy with Secure Multiparty Computations 
+## Combining Differential Privacy with Secure Multiparty Computations 
 This is an implementation of the algorithms described in the paper https://dl.acm.org/doi/10.1145/2818000.2818027.
 There are three code files each for Average calculation and Correlation calculation written in sharemind's SecreC language. 
 The three code files implement 4 different levels of differential private query's on any dataset. 
