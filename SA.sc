@@ -2,19 +2,22 @@ import shared3p;
 import shared3p_random;
 import stdlib;
 domain pd_shared3p shared3p;
-uint n = 10000;
-uint L = 1000;
+uint n = 100;
+uint L = 100;
 
 float32 [[1]] lvalues(n);
 
 void initiate_lvalues(uint L, float32 s){
-    pd_shared3p uint8[[1]] rd_values(L);
-    pd_shared3p bool[[1]] sign(L);
-    sign = randomize(sign);
-    rd_values = (randomize(rd_values)%100+100)%100;
-    lvalues[:L] = ln(1-(float32)declassify(rd_values)/(float32)100);
-    lvalues[:L] = (declassify(sign))?lvalues[:L]:(-1.0)*lvalues[:L];
-    lvalues[:L] = lvalues[:L]*s;
+    pd_shared3p uint16[[1]] rd_values(L);
+    bool[[1]] sign(L);
+    rd_values = (randomize(rd_values)%1000+1000)%1000;
+    //printVector(declassify(rd_values));
+    lvalues[:L] = declassify((float32)rd_values/(float32)1000) - 0.5;
+    sign = lvalues[:L]>0;
+    lvalues[:L] = ln(1.0001-2*abs(lvalues[:L]));
+    lvalues[:L] = (sign)?lvalues[:L]*s:lvalues[:L]*(-1)*s;
+    lvalues[:L] = lvalues[:L];
+    //printVector(lvalues);
 }
 
 pd_shared3p float32 f(pd_shared3p int64[[1]] arr)
@@ -43,7 +46,7 @@ float32 SampleAndAggregate(pd_shared3p int64 [[1]]T, uint L, float32 a, float32 
 }
 
 void main(){
-    float32 a = 0.0; float32 b = 100;
+    float32 a = 0; float32 b = 10;
     float32 E = 1;
     initiate_lvalues(L, (b-a)/E);
     pd_shared3p int64 [[1]] T(n) = 6;

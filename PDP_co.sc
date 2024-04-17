@@ -28,15 +28,17 @@ bool[[1]] Q(pd_shared3p int64[[2]] T,pd_shared3p bool[[1]] m)
 }
 
 void initiate_lvalues(uint L, float32 s){
-
-    pd_shared3p uint8[[1]] rd_values(L);
-    pd_shared3p bool[[1]] sign(L);
-    sign = randomize(sign);
-    rd_values = (randomize(rd_values)%100+100)%100;
-    lvalues[:L] = ln(1-(float32)declassify(rd_values)/(float32)100);
-    lvalues[:L] = (declassify(sign))?lvalues[:L]:(-1.0)*lvalues[:L];
+    pd_shared3p uint16[[1]] rd_values(L);
+    bool[[1]] sign(L);
+    rd_values = (randomize(rd_values)%1000+1000)%1000;
+    //printVector(declassify(rd_values));
+    lvalues[:L] = declassify((float32)rd_values/(float32)1000) - 0.5;
+    sign = lvalues[:L]>0;
+    lvalues[:L] = ln(1.0001-2*abs(lvalues[:L]));
+    lvalues[:L] = (sign)?lvalues[:L]*s:lvalues[:L]*(-1)*s;
+    lvalues[:L] = lvalues[:L];
+    //printVector(lvalues);
 }
-
 pd_shared3p float32 correlation(pd_shared3p int64[[1]] X,pd_shared3p bool[[1]]m)
 {
     uint n = size(X);
