@@ -37,7 +37,7 @@ As we can see, as E is reduced increasing the privacy protection, the output is 
 ## Results :
 The paper is aimed at determining the time complexity of adding differential privacy to secure multiparty computations. So to evaluate my implementation of the paper, I have used plotted the estimated running times of my simulations. These running times are shown in the runtime terminals as shown. 
 </br>
-<img src="https://github.com/manuka03/DiffPrivacywithSMC/assets/99576067/ce66ac04-228c-45cf-86c2-46813ef66223" alt="image" width="700" height="600">
+<img src="https://github.com/manuka03/DiffPrivacywithSMC/assets/99576067/ce66ac04-228c-45cf-86c2-46813ef66223" alt="image" width="700" height="600"> </br>
 The non differentially private time taken on my system is approximated by commenting out the lower and upper limit comparisions and laplace noise formation and addition. The global budget version corresponds to SA.sc described earlier. 
 The following graphs represent the time complexities of the algorithms implemented. <br> 
 For Correlation Calculation: <br>
