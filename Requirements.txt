@@ -1,0 +1,8 @@
+Requirements
+For the .sc files, 
+Some virtual environment (like VirtualBox)
+ShareMind SDK emulator
+SecreC 2 language compiler (inbuilt in sharemind sdk)
+
+For the .ipynb file, any python environment is suitable. 
+It can be run on google colab or Kaggle by importing the jupyter notebook
