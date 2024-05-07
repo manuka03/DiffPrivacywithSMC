@@ -1,0 +1,21 @@
+# Sharemind SecreC environment YAML file
+
+# Name of your Sharemind project
+name: sharemind_project
+
+# List of dependencies required to run the Sharemind SecreC code
+dependencies:
+  # Sharemind SecreC standard library
+  - stdlib
+  
+  # Sharemind 3-party library for common functionalities
+  - shared3p
+  
+  # Sharemind 3-party library for random number generation
+  - shared3p_random
+  
+  # Sharemind 3-party library for sorting functionalities
+  - shared3p_sort
+  
+  # Sharemind SDK emulator for running SecreC code on VirtualBox
+  - sharemind_sdk
